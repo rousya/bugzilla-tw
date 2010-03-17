@@ -65,6 +65,9 @@
       以時間為單位，繪出任何搜尋。功能更為強大。
     </li>
   [% END %]
+ [% Hook.process('current_state') %]
 </ul>
+
+[% Hook.process('end') %]
 
 [% PROCESS global/footer.html.tmpl %]
