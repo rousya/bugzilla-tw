@@ -1364,10 +1364,25 @@
       [% END %]
     [% END %]
 
+  [% ELSIF error == "sudo_illegal_action" %]
+    [% title = "未授權 sudo" %]
+    [% IF NOT sudoer.in_group("bz_sudoers") %]
+      你並未被允許可以 sudo 使用者。
+    [% ELSIF target_user AND target_user.in_group("bz_sudo_protect") %]
+      你並未被允許可以 sudo [% target_user.identity FILTER html %] 。
+    [% ELSE %]
+      你要 sudo 的使用者不存在。
+  [% END %]
+
   [% ELSIF error == "sudo_in_progress" %]
     [% title = "正在 sudo" %]
     目前正在 sudo [% target FILTER html %] 。
     在開始新的 sudo 之前，請先利用頁尾的連結結束這個 sudo。
+
+  [% ELSIF error == "sudo_invalid_cookie" %]
+    [% title = "無效的 sudo cookie" %]
+    你的 sudo cookie 無效。它可能過期了，或是你的 sudo 並未正確開始。
+    請重新整理頁面，或是以你自己的身份載入其他頁面並繼續。
 
   [% ELSIF error == "sudo_password_required" %]
     [% title = "需要輸入密碼" %]
