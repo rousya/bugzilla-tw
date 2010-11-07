@@ -122,6 +122,7 @@ EOT
     module_not_found => "沒有找到",
     module_ok => 'OK',
     module_unknown_version => "找到未知的版本",
+    no_such_module => "在 CPAN 上找不到叫 ##module## 的 Perl 模組。",
     ppm_repo_add => <<EOT,
 ***********************************************************************
 * 給 Windows 使用者                                                   *
