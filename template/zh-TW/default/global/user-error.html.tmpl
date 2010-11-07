@@ -755,7 +755,7 @@
 
   [% ELSIF error == "invalid_datasets" %]
     [% title = "無效的資料組" %]
-    <em>[% datasets FILTER html %]</em> 是無效的資料組。僅允許數字、英文字母以及冒號 (:)。
+    <em>[% datasets.join(":") FILTER html %]</em> 是無效的資料組。僅允許數字、英文字母以及冒號 (:)。
 
   [% ELSIF error == "invalid_format" %]
     [% title = "無效的格式" %]
