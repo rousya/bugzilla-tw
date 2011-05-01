@@ -1180,6 +1180,9 @@
     [%- IF class == "Bugzilla::User" %]
       可能是你輸入了錯誤的名稱，或者該使用者尚未建立 [% terms.Bugzilla %] 帳號。
     [% END %]
+    [% IF class == "Bugzilla::Keyword" %]
+      有效的關鍵字名稱<a href="describekeywords.cgi">列於此處</a>。
+    [% END %]
 
   [% ELSIF error == "old_password_incorrect" %]
     [% title = "不正確的舊密碼" %]
@@ -1662,6 +1665,8 @@
     欄位
   [% ELSIF class == "Bugzilla::Group" %]
     群組
+  [% ELSIF class == "Bugzilla::Keyword" %]
+    關鍵字
   [% ELSIF class == "Bugzilla::Product" %]
     產品
   [% ELSIF class == "Bugzilla::Search::Saved" %]
