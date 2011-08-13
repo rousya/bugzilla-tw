@@ -46,7 +46,7 @@
 From: [% Param('mailfrom') %]
 To: [% to %]
 Subject: [%+ subject_status %] [% flag.type.name %] ： [[% terms.Bug %] [%+ bug.bug_id %]] [% bug.short_desc %]
-[%- IF attachment %]：[附件 [% attachment.id %]] [% attachment.description %][% END %]
+[%- IF attachment %]：[附件 [% attachment.id %]] [% attachment.description FILTER clean_text %][% END %]
 X-Bugzilla-Type: request
 [%+ threadingmarker %]
 

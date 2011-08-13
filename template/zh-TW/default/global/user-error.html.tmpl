@@ -90,6 +90,11 @@
     [% terms.Bug %]別名不能超過 20 字元。
     請選擇較短的別名。
 
+  [% ELSIF error == "attachment_bug_id_mismatch" %]
+    [% title = "無效的附件" %]
+    你嘗試對不同 [% terms.bugs %] 的附件執行一項動作。
+    此動作必須在所有附件來自同一個 [% terms.bug %] 的條件下才能執行。
+
   [% ELSIF error == "auth_cant_create_account" %]
     [% title = "無法建立帳號" %]
     如要建立帳號，請洽管理者。

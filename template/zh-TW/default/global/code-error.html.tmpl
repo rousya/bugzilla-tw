@@ -183,7 +183,7 @@
     並未設定有效的 [% field FILTER html %] 。
 
   [% ELSIF error == "inactive_group" %]
-    嘗試新增[% terms.bug %]到'[% name FILTER html %]'群組，但該群組已不使用於[% terms.bugs %]上。
+    嘗試新增[% terms.bug %]到群組編號 [% group_id FILTER html %] 中，但該群組已不使用於[% terms.bugs %]上。
 
   [% ELSIF error == "invalid_attach_id_to_obsolete" %]
     你想要廢棄的附件編號其中之一（[% attach_id FILTER html %]）無效。
