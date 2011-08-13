@@ -97,6 +97,11 @@
     [% terms.Bug %]別名不能超過 20 字元。
     請選擇較短的別名。
 
+  [% ELSIF error == "attachment_bug_id_mismatch" %]
+    [% title = "無效的附件" %]
+    你嘗試對不同 [% terms.bugs %] 的附件執行一項動作。
+    此動作必須在所有附件來自同一個 [% terms.bug %] 的條件下才能執行。
+
   [% ELSIF error == "auth_cant_create_account" %]
     [% title = "無法建立帳號" %]
     如要建立帳號，請洽管理者。
@@ -1204,7 +1209,7 @@
     [% title = "需要新的密碼" %]
     目前系統的密碼長度要求是至少
     [%+ constants.USER_PASSWORD_MIN_LENGTH FILTER html %] 字元，而你目前的密碼不符合此要求。
-    你必須<a href="token.cgi?a=reqpw&loginname=[% locked_user.email FILTER html %]">
+    你必須<a href="token.cgi?a=reqpw&amp;loginname=[% locked_user.email FILTER html %]">
     申請新的密碼</a>才能再度登入。
 
   [% ELSIF error == "password_too_short" %]
@@ -1435,15 +1440,15 @@
   [% ELSIF error == "sudo_password_required" %]
     [% title = "需要輸入密碼" %]
     需要輸入你的 [% terms.Bugzilla %] 密碼，來執行 sudo 。請<a
-    href="relogin.cgi?action=prepare-sudo&target_login=
-    [%- target_login FILTER html %]&reason=
+    href="relogin.cgi?action=prepare-sudo&amp;target_login=
+    [%- target_login FILTER html %]&amp;reason=
     [%- reason FILTER html %]">回到上一頁</a>並輸入密碼。
 
   [% ELSIF error == "sudo_preparation_required" %]
     [% title = "需要正常流程" %]
     你無法直接執行 sudo 。請<a
-    href="relogin.cgi?action=prepare-sudo&target_login=
-    [%- target_login FILTER html %]&reason=
+    href="relogin.cgi?action=prepare-sudo&amp;target_login=
+    [%- target_login FILTER html %]&amp;reason=
     [%- reason FILTER html %]">依照正常流程執行 sudo</a> 。
 
   [% ELSIF error == "sudo_protected" %]
@@ -1634,7 +1639,7 @@
 
     [% FOREACH q = Bugzilla.user.queries %]
       [% IF q.name == namedcmd %]
-        或是<a href="query.cgi?[% q.url FILTER html %]">編輯</a>
+        或是<a href="query.cgi?[% q.url FILTER url_quote %]">編輯</a>
       [% END %]
     [% END %]
 
