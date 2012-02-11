@@ -63,8 +63,7 @@
     [% ELSE %]
       [%+ Param('emailregexpdesc') %]
     [% END %]
-    另外，不可以含有下列特殊字元：
-    <tt>\ ( ) &amp; &lt; &gt; , ; : &quot; [ ]</tt>，或是任何空白。
+    另外，不可以含有任何不合法的字元。
 
   [% ELSIF error == "authres_unhandled" %]
     [% value FILTER html %] 結果值並非由登入碼處理。
